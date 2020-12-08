@@ -1,219 +1,8 @@
-# Boas vindas ao repositório do projeto de testes com a React Testing Library!
+# Boas vindas ao repositório do projeto de Carrinho de Compras!
 
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
----
-
-### Entrega
-
-  - Projeto individual.
-
-  - Serão dois dias de projeto.
-  
-  - O projeto tem até a seguinte data: `12/08/2020 - 14:00h`. Para ser entregue a avaliação final.
-
-
-## O que deverá ser desenvolvido
-
-Nesse projeto você escreverá testes para uma aplicação React.
-
-## Desenvolvimento
-
-Este repositório já contém uma aplicação React criada e configurada. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você não precisará realizar nenhuma configuração adicional. Você deverá utilizar [`Jest`](https://jestjs.io/) e a biblioteca [`React Testing Library`](https://testing-library.com/) (também já instaladas e configuradas) para escrever os testes. Note que a aplicação contém uma implementação completa de todos os requisitos da Pokédex. Seu trabalho será, para cada requisito listado a seguir, escrever testes que garantam sua corretude. Cuidado com [testes _falsos positivos_](https://talkingabouttesting.com/2015/08/04/falsos-negativos-falsos-positivos-verdadeiros-negativos-e-verdadeiros-positivos/). Falsos positivos serão desconsiderados na avaliação.
-
-### Quem testa os testes?
-
-  Nesse trabalho o avaliador automatizado **testam os testes de vocês!** A ideia dele é a seguinte: você vai escrever casos de teste para a aplicação, certo? E esses testes têm que garantir que a aplicação está funcionando, certo? Pois bem! Se eu quebro uma parte da aplicação, fazendo uma alteração no código, seus testes devem quebrar, certo? Pois é isso que o avaliador faz.
-  Como assim? Pense da seguinte forma: nosso avaliador vai navegar por toda a aplicação da Pokédex e vai fazer várias mudanças no código dela **para que ela quebre e pare de funcionar**. Em seguida ele vai rodar seus testes. Caso seus testes não acusem que aplicação está com problemas o avaliador não vai aprovar aquele requisito! Se, para todas as alterações que o avaliador fizer no código da aplicação, os seus testes acusarem problemas, tudo será aprovado! O avaliador garante, portanto, que seus testes testam a aplicação da Pokédex como se deve!
-  Na linguagem do avaliador, dizemos que cada mudança que o avaliador faz na sua aplicação é um **mutante**. O avaliador cria vários mutantes e seus testes **devem matar todos!** Se algum mutante sobreviver, temos problemas. Certo? Vamos aos requisitos então!
-
-## Requisitos do projeto
-
-A seguir estão listados todos os requisitos do projeto. Lembre-se que para a avaliação utilizaremos testes por mutação, então cada requisito só será aceito se os testes tiverem comportamento adequado tanto na aplicação original como na modificada.
-
-Todos os arquivos de teste que vocês usarão **já estão previamente criados e novos arquivos não devem ser criados**. Como exemplo colocamos um teste dentro do arquivo `src/tests/App.test.js`. Além disso, **cada requisito se refere a um arquivo da aplicação da Pokédex**. Obter aprovação num requisito significa que todos os casos de erro daquele arquivo estão cobertos, ou seja, todos os mutantes criados naquele arquivo pelo avaliador foram mortos. Nos subitens de cada requisito detalhamos o que é necessário fazer para obter a aprovação neles.
-
-### 1. Testes do arquivo App.js
-
-  - Ao carregar a aplicação no caminho de URL “/”, a página principal da Pokédex deve ser mostrada.
-
-  - No topo da aplicação, deve haver um conjunto fixo de links de navegação
-
-    - O primeiro link deve possuir o texto `Home` com a URL `/`;
-
-    - O segundo link deve possuir o texto `About` com a URL `/about`;
-
-    - O terceiro link deve possuir o texto `Favorite Pokémons` com a URL `/favorites`.
-
-  - Ao clicar no link "Home" na barra de navegação, a aplicação deve ser redirecionada para a página inicial, na URL "/"
-
-  - Ao clicar no link "About" na barra de navegação, a aplicação deve ser redirecionada para a página de `About`, na URL "/about"
-
-  - Ao clicar no link "Favorite Pokémons" na barra de navegação, a aplicação deve ser redirecionada para a página de pokémons favoritados, na URL "/favorites"
-
-  - Entrar em uma URL desconhecida exibe a página `Not Found`
-
-### 2. Testes do arquivo About.js
-
-  - A página "About" deve exibir informações sobre a Pokédex
-
-  - A página deve conter um heading `h2` com o texto `About Pokédex`;
-
-  - A página deve conter dois parágrafos com texto sobre a Pokédex;
-
-  - A página deve conter a seguinte imagem de uma Pokédex: `https://cdn.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png`.
-
-### 3. Testes do arquivo FavoritePokemons.js
-
-  - Caso a pessoa não tenha pokémons favoritos, a mensagem `No favorite pokemon found` deve aparecer na tela.
-
-  - A página não deve exibir nenhum card de pokémon não favoritado.
-
-  - A página deve exibir todos os cards de pokémons favoritados;
-
-### 4. Testes do arquivo NotFound.js
-
-  - A página deve conter um heading `h2` com o texto `Page requested not found 😭`;
-
-  - A página deve exibir a imagem `https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif`.
-
-### 5. Testes do arquivo Pokedex.js
-
-  - Ao apertar o botão de próximo, a página deve exibir o próximo pokémon da lista
-
-    - O botão deve conter o texto `Próximo pokémon`;
-
-    - Cliques sucessivos no botão devem mostrar o próximo pokémon da lista;
-
-    - Ao se chegar ao último pokémon da lista, a Pokédex deve voltar para o primeiro pokémon no apertar do botão.
-
-  - A Pokédex deve exibir apenas um pokémon por vez
-
-  - A Pokédex deve conter botões de filtro
-
-    - A partir da seleção de um botão de tipo, a Pokédex deve circular somente pelos pokémons daquele tipo;
-
-    - O texto do botão deve ser o nome do tipo, p. ex. `Psychic`.
-
-  - A Pokédex deve conter um botão para resetar o filtro
-
-    - O texto do botão deve ser `All`;
-
-    - Após clicá-lo, a Pokédex deve voltar a circular por todos os pokémons;
-
-    - Quando a página carrega, o filtro selecionado deve ser o `All`.
-
-  - A Pokédex deve gerar, dinamicamente, um botão de filtro para cada tipo de pokémon
-
-    - Os botões de filtragem devem ser dinâmicos: sua Pokédex deve gerar um botão de filtragem para cada tipo de pokémon disponível nos dados independente de quais ou quantos sejam, sem repetição de tipos. Ou seja, se sua Pokédex possui pokémons do tipo `Fire`, `Psychic`, `Electric` e `Normal`, deve aparecer como opção de filtro um botão para cada um desses tipos. Além disso, ela deve manter o botão `All`.
-
-  - O botão de `Próximo pokémon` deve ser desabilitado se a lista filtrada de pokémons tiver um só pokémon
-
-### 6. Testes do arquivo Pokemon.js
-
-  - Deve ser retornado um card com as informações de determinado pokémon;
-
-  - O nome correto do pokémon deve aparecer na tela;
-
-  - O peso médio do pokémon deve ser exibido com um texto no formato `Average weight: <value> <measurementUnit>`, onde `<value>` e `<measurementUnit>` são, respectivamente, o peso médio do pokémon e sua unidade de medida;
-
-  - A imagem deve conter um atributo `src` com a URL da imagem do pokémon. A imagem deverá ter também um atributo `alt` com o texto `<name> sprite`, onde `<name>` é o nome do pokémon;
-
-  - O pokémon exibido na Pokédex deve conter um link de navegação para exibir detalhes deste pokémon. O link deve possuir a URL `/pokemons/<id>`, onde `<id>` é o id do pokémon exibido;
-
-  - Ao clicar no link de navegação do pokémon, a aplicação deve ser redirecionada para a página de detalhes de pokémon. A URL exibida no navegador deve mudar para `/pokemon/<id>`, onde `<id>` é o id do pokémon cujos detalhes se deseja ver;
-
-  - Pokémons favoritados devem exibir um ícone de uma estrela
-
-    - O ícone deve ser uma imagem, com o atributo `src` igual `/star-icon.svg`;
-
-    - A imagem deve ter o atributo `alt` igual a `<pokemon> is marked as favorite`, onde `<pokemon>` é o nome do pokémon cujos detalhes estão sendo exibidos.
-
-### Testes do arquivo PokemonDetails.js
-
-  - Deve conter mais informações sobre apenas o pokémon selecionado;
-
-  - A página deve conter um texto `<name> Details`, onde `<name>` é o nome do pokémon;
-
-  - O pokémon exibido na página de detalhes não deve conter um link de navegação para exibir detalhes deste pokémon;
-
-  - A seção de detalhes deve conter um heading `h2` com o texto `Summary`;
-
-  - A seção de detalhes deve conter um parágrafo com o resumo do pokémon específico sendo visualizado;
-
-  - A página de detalhes deve exibir uma seção com os mapas com as localizações do pokémon
-
-      - A seção de detalhes deve conter um heading `h2` com o texto `Game Locations of <name>`, , onde `<name>` é o nome do pokémon exibido;
-
-      - A seção de detalhes deve exibir todas as localizações do pokémon;
-
-      - Cada localização deve exibir o nome da localização e uma imagem do mapa da localização;
-
-      - A imagem da localização deve ter um atributo `src` com a URL da localização;
-
-      - A imagem da localização deve ter um atributo `alt` com o texto `<name> location`, onde `<name>` é o nome do pokémon.
-
-  - A página de detalhes deve permitir favoritar um pokémon
-
-    - A página deve conter um checkbox que permita favoritar um pokémon. Cliques no checkbox devem, alternadadamente, adicionar e remover o pokémon da lista de favoritos;
-
-    - O label do checkbox deve ser `Pokémon favoritado?`.
-
-## Quer fazer mais? Temos algumas sugestões!
-
-O que temos a seguir não são requisitos bônus - são ideias para você se aprofundar mais no projeto e **aprender mais!** Que tal trabalhar neles? Começamos com algo bem direto:
-
-  - A cobertura de testes deve ser 100%
-
-    - Para ver a cobertura de testes, execute no terminal o comando `npm run test-coverage`.
-
-Além disso, a Pokédex é uma aplicação estática, com seus dados pré-definidos. Utilizando a [PokéAPI](https://pokeapi.co/), é possível deixá-la mais dinâmica e realista.
-
-Se quiser implemente os requisitos propostos a seguir e escreva testes para eles. Tente manter sempre a cobertura de testes em 100%, garantindo assim que não há código ou fluxos lógicos não testados. Para um desafio adicional, tente utilizar TDD - escreva os testes à medida que for implementando os requisitos.
-
-  - Adicione uma rota para exibir uma lista de localizações
-
-    - A URL da rota deve ser `/locations`;
-
-    - A página deve exibir uma lista com as localizações retornadas pela PokéAPI. Você pode ler [aqui](https://pokeapi.co/docs/v2.html/#resource-lists-section) e [aqui](https://pokeapi.co/docs/v2.html/#locations-section) como utilizar a PokéAPI para buscar uma lista de localizações.
-
-  - Adicione na barra de navegação um link para a lista de localizações
-
-    - O link deve conter o texto `Locations`;
-
-    - Ao clicar no link, a página com a lista de localizações deve ser exibida.
-
-  - Adicione botões de paginação na lista de localizações
-
-  Por default, os _endpoints_ da PokéAPI retornam no máximo 20 resultados. Utilizando os parâmetros `limit` e `offset`, você pode especificar qual página deseja buscar e qual seu tamanho. Veja [aqui](https://pokeapi.co/docs/v2.html/#resource-lists-section) como utilizar estes parâmetros.
-
-    - Adicone dois botões "Anterior" e "Próxima" que permitam navegar entre as página da lista de localizações;
-
-    - Na primeira página, o botão "Anterior" deve ser desabilitado. Da mesma forma, ao alcançar a última página, o botão "Próximo" deve ser desabilitado.
-
-  - Adiciona uma rota para exibir uma lista de gerações
-
-    - A URL da rota deve ser `/generations`;
-
-    - A página deve exibir uma lista com as gerações retornadas pela PokéAPI. Você pode ler [aqui](https://pokeapi.co/docs/v2.html/#resource-lists-section) e [aqui](https://pokeapi.co/docs/v2.html/#generations) como utilizar a PokéAPI para buscar uma lista de gerações.
-
-  - Adicione na barra de navegação um link para a lista de gerações
-
-    - O link deve conter o texto `Generations`;
-
-    - Ao clicar no link, a página com a lista de gerações deve ser exibida.
-
-  - Adicione uma rota para exibir informações sobre uma geração
-
-    - A URL da rota deve ser `/generations/<id>`, onde `<id>` é o id da geração exibida;
-
-    - A página deve exibir, após buscar na PokéAPI, o nome da geração e uma lista com os nomes dos pokémons introduzidos nesta geração.
-
-  - Adicione a cada geração na lista de gerações um link para a página de detalhes desta geração
-
-    - Ao clicar no link, a página com informações sobre a geração clicada deve ser exibida.
+Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
 
 ---
 
@@ -222,63 +11,369 @@ Se quiser implemente os requisitos propostos a seguir e escreva testes para eles
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-05-block15-project-react-testing-library.git`.
+  * `git clone https://github.com/tryber/sd-05-block9-project-shopping-cart.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-05-block15-project-react-testing-library`
+    * `cd sd-05-block9-project-shopping-cart`
 
-2. Instale as dependências
-  * `npm install`
-
-3. Crie uma branch a partir da branch `master`
+2. Crie uma branch a partir da branch `master`
   * Verifique que você está na branch `master`
     * Exemplo: `git branch`
   * Se não estiver, mude para a branch `master`
     * Exemplo: `git checkout master`
-  * Agora crie uma branch para qual você vai submeter os `commits` do seu projeto
+  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
     * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-react-testing`
+    * Exemplo: `git checkout -b joaozinho-project-shopping-cart`
 
-4. Adicione um teste para algum dos requisitos do projeto. Por exemplo, para o requisito #1, adicione em `App.test.js`:
+3. Crie na raiz do projeto os arquivos que você precisará desenvolver:
+  * Verifique que você está na raiz do projeto
+    * Exemplo: `pwd` -> o retorno vai ser algo tipo _/Users/joaozinho/code/**sd-05-block9-project-shopping-cart**_
+  * Crie os arquivos index.html, style.css e script.js
+    * Exemplo: `touch index.html style.css script.js`
 
-```javascript
-test('shows the Pokédex when the route is `/`', () => {
-  const { getByText } = render(
-    <MemoryRouter initialEntries={['/']}>
-      <App />
-    </MemoryRouter>,
-  );
-
-  expect(getByText('Encountered pokémons')).toBeInTheDocument();
-});
-```
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
   * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listado o arquivo _src/last.js_ em vermelho)
-  * Adicione o arquivo alterado ao _stage_ do Git
+    * Exemplo: `git status` (devem aparecer listados os novos arquivos em vermelho)
+  * Adicione o novo arquivo ao _stage_ do Git
       * Exemplo:
         * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/last.js_ em verde)
+        * `git status` (devem aparecer listados os arquivos em verde)
   * Faça o `commit` inicial
       * Exemplo:
         * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
         * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
 
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-react-testing`
+5. Adicione a sua branch com o novo `commit` ao repositório remoto
+  * Usando o exemplo anterior: `git push -u origin joaozinho-project-shopping-cart`
 
-7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-05-block15-project-react-testing-library/pulls)
+6. Crie um novo `Pull Request` _(PR)_
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-05-block9-project-shopping-cart/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
+  * Adicione uma descrição para o _Pull Request_, um título claro que o identifique, e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-05-block15-project-react-testing-library/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-05-block9-project-shopping-cart/pulls) e confira que o seu _Pull Request_ está criado
+
+---
+
+# Entregáveis
+
+Para entregar o seu projeto você deverá criar um Pull Request neste repositório. Este Pull Request deverá conter os arquivos `index.html`, `style.css` e `script.js`, que conterão seu código HTML, CSS e JavaScript, respectivamente. Você pode adicionar outros arquivos se julgar necessário. ⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️
+
+Você pode adicionar outros arquivos se julgar necessário. Qualquer dúvida, procure a monitoria. Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub sempre que quiser!
+
+---
+
+### Entrega
+
+  - Projeto individual.
+
+  - Serão dois dias de projeto.
+
+  - O projeto tem até a seguinte data: `06/07/2020 - 14:00h`. Para ser entregue a avaliação final.
+
+## Requisitos do projeto
+
+A seguir, estão listados todos os requisitos do projeto. Leia-os atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de ids que alguns elementos de seu projeto devem possuir**. O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
+
+Os requisitos do seu projeto são avaliados automaticamente, sendo utilizada a resolução `1366 x 768` (1366 pixels de largura por 768 pixels de altura). Logo, recomenda-se desenvolver seu projeto usando a mesma resolução, via instalação [deste plugin](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en) do `Chrome` para facilitar a configuração dessa resolução.
+
+Você tem liberdade para adicionar novos comportamentos ao seu projeto, seja na forma de aperfeiçoamentos em requisitos propostos ou novas funcionalidades, **desde que tais comportamentos adicionais não conflitem com os requisitos propostos**. Em outras palavras, você pode fazer mais do que for pedido, mas nunca menos. Contudo, tenha em mente que **nada além do que for pedido nos requisitos será avaliado**. Esta é uma oportunidade de você exercitar sua criatividade e experimentar com os conhecimentos adquiridos.
+
+Nesse projeto vocês farão um **carrinho de compras** totalmente dinâmico! E o melhor: consumindo dados diretamente de uma **API!** Isso mesmo. Da sigla em inglês _Application Programming Interface_, uma API é um ponto de contato na internet com determinado serviço. Através de **requisições HTTP** a essa API é possível interagir com ela da forma como quem a criou planejou. Aqui usaremos a API do Mercado Livre para buscarmos produtos à venda.
+
+O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas) contém muitas informações sobre ela. Utilizaremos alguns dos _endpoints_, e a forma de uso está detalhada no primeiro requisito. Este projeto tem como objetivo:
+
+- Revisar seu conhecimento acerca de JavaScript, CSS e HTML;
+- Checar o seu conhecimento acerca de JavaScript assíncrono através do uso da API do mercado livre.
+
+Lembre-se de testar, usando Jest, quaisquer funções que criar para comportar a lógica da sua aplicação. Isso é um treinamento muito importante para o próximo trabalho!
+
+Seu projeto só será avaliado se estiver passando pelos _checks_ do **CodeClimate** e do **TravisCI**.
+
+### 1. Listagem de produtos
+
+Você deve criar uma listagem de produtos que devem ser consultados através da API do Mercado Livre.
+
+Você deve utilizar o _endpoint_:
+```javascript
+"https://api.mercadolibre.com/sites/MLB/search?q=$QUERY"
+```
+onde `$QUERY` deve ser o valor da sua busca. Para este trabalho, a busca deve ser o termo `computador`.
+
+O retorno desse _endpoint_ será algo no formato json. Por exemplo, se for pesquisado "computador":
+```json
+{
+    "site_id": "MLB",
+    "query": "computador",
+    "paging": {
+        "total": 406861,
+        "offset": 0,
+        "limit": 50,
+        "primary_results": 1001
+    },
+    "results": [
+        {
+            "id": "MLB1341925291",
+            "site_id": "MLB",
+            "title": "Processador Intel Core I5-9400f 6 Núcleos 128 Gb",
+            "seller": {
+                "id": 385471334,
+                "permalink": null,
+                "power_seller_status": null,
+                "car_dealer": false,
+                "real_estate_agency": false,
+                "tags": []
+            },
+            "price": 899,
+            "currency_id": "BRL",
+            "available_quantity": 1,
+            "sold_quantity": 0,
+            "buying_mode": "buy_it_now",
+            "listing_type_id": "gold_pro",
+            "stop_time": "2039-10-10T04:00:00.000Z",
+            "condition": "new",
+            "permalink": "https://www.mercadolivre.com.br/processador-intel-core-i5-9400f-6-nucleos-128-gb/p/MLB13953199",
+            "thumbnail": "http://mlb-s2-p.mlstatic.com/813265-MLA32241773956_092019-I.jpg",
+            "accepts_mercadopago": true,
+            "installments": {
+                "quantity": 12,
+                "amount": 74.92,
+                "rate": 0,
+                "currency_id": "BRL"
+            },
+            "address": {
+                "state_id": "BR-SP",
+                "state_name": "São Paulo",
+                "city_id": "BR-SP-27",
+                "city_name": "São José dos Campos"
+            },
+            "shipping": {
+                "free_shipping": true,
+                "mode": "me2",
+                "tags": [
+                    "fulfillment",
+                    "mandatory_free_shipping"
+                ],
+                "logistic_type": "fulfillment",
+                "store_pick_up": false
+            },
+            "seller_address": {
+                "id": "",
+                "comment": "",
+                "address_line": "",
+                "zip_code": "",
+                "country": {
+                    "id": "BR",
+                    "name": "Brasil"
+                },
+                "state": {
+                    "id": "BR-SP",
+                    "name": "São Paulo"
+                },
+                "city": {
+                    "id": "BR-SP-27",
+                    "name": "São José dos Campos"
+                },
+                "latitude": "",
+                "longitude": ""
+            },
+            "attributes": [
+                {
+                    "source": 1,
+                    "id": "ALPHANUMERIC_MODEL",
+                    "value_id": "6382478",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "name": "BX80684I59400F",
+                            "struct": null,
+                            "source": 1,
+                            "id": "6382478"
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "name": "Modelo alfanumérico",
+                    "value_name": "BX80684I59400F",
+                    "attribute_group_name": "Outros"
+                },
+                {
+                    "id": "BRAND",
+                    "value_struct": null,
+                    "attribute_group_name": "Outros",
+                    "attribute_group_id": "OTHERS",
+                    "source": 1,
+                    "name": "Marca",
+                    "value_id": "15617",
+                    "value_name": "Intel",
+                    "values": [
+                        {
+                            "id": "15617",
+                            "name": "Intel",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Condição do item",
+                    "value_id": "2230284",
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "source": 1,
+                    "id": "ITEM_CONDITION",
+                    "value_name": "Novo",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "id": "2230284",
+                            "name": "Novo",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "LINE",
+                    "value_name": "Core i5",
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "name": "Linha",
+                    "value_id": "7769178",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "id": "7769178",
+                            "name": "Core i5",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ],
+                    "source": 1
+                },
+                {
+                    "id": "MODEL",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "id": "6637008",
+                            "name": "i5-9400F",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "name": "Modelo",
+                    "value_id": "6637008",
+                    "value_name": "i5-9400F",
+                    "attribute_group_name": "Outros",
+                    "source": 1
+                }
+            ],
+            "differential_pricing": {
+                "id": 33580182
+            },
+            "original_price": null,
+            "category_id": "MLB1693",
+            "official_store_id": null,
+            "catalog_product_id": "MLB13953199",
+            "tags": [
+                "brand_verified",
+                "good_quality_picture",
+                "good_quality_thumbnail",
+                "immediate_payment",
+                "cart_eligible"
+            ],
+            "catalog_listing": true
+        },
+    ]
+}
+```
+A lista de produtos que devem ser exibidos é o _array_ `results` no `JSON` acima.
+
+Você **deve** utilizar a função `createProductItemElement(product)` para criar os componentes _HTML_ referentes a um produto.
+
+Adicione o elemento retornado da função `createProductItemElement(product)` como filho do elemento `<section class="items">`.
+
+**Obs:** as variáveis `sku`, no código fornecido, se referem aos campos `id` retornados pela API.
+
+### 2. Adicione o produto ao carrinho de compras
+
+Cada produto na página _HTML_ possui um botão com o nome `Adicionar ao carrinho!`.
+
+Ao clicar nesse botão você deve realizar uma requisição para o _endpoint_:
+```javascript
+"https://api.mercadolibre.com/items/$ItemID"
+```
+onde `$ItemID` deve ser o valor `id` do item selecionado.
+
+Quando colocado o id `MLB1341706310` retorno desse _endpoint_ será algo no formato:
+```JSON
+{
+    "id": "MLB1341706310",
+    "site_id": "MLB",
+    "title": "Processador Amd Ryzen 5 2600 6 Núcleos 64 Gb",
+    "subtitle": null,
+    "seller_id": 245718870,
+    "category_id": "MLB1693",
+    "official_store_id": 1929,
+    "price": 879,
+    "base_price": 879,
+    "original_price": null,
+    "currency_id": "BRL",
+    "initial_quantity": 0,
+    "available_quantity": 0,
+    "sold_quantity": 0,
+    ...
+    "warranty": "Garantia de fábrica: 3 anos",
+    "catalog_product_id": "MLB9196241",
+    "domain_id": "MLB-COMPUTER_PROCESSORS",
+    "parent_item_id": null,
+    "differential_pricing": null,
+    "deal_ids": [],
+    "automatic_relist": false,
+    "date_created": "2019-10-15T18:13:00.000Z",
+    "last_updated": "2019-12-20T18:06:54.000Z",
+    "health": null,
+    "catalog_listing": true
+}
+```
+Preste atenção que o JSON deve conter apenas **um** item.
+
+Você **deve** utilizar a função `createCartItemElement()` para criar os componentes _HTML_ referentes a um item do carrinho.
+
+Adicione o elemento retornado da função `createCartItemElement(product)` como filho do elemento `<ol class="cart__items">`.
+
+### 3. Remova o item do carrinho de compras ao clicar nele
+
+Ao clicar no **produto no carrinho de compra**, ele deve ser removido da lista.
+Para isso, uma função (já existente) chamada `cartItemClickListener(event)` deve ser implementada com a lógica necessária para realizar a remoção.
+
+### 4. Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página
+
+Ao carregar a página, o estado atual do carrinho de compras deve ser carregado do **LocalStorage**.
+Para que isso funcione, o carrinho de compras deve ser salvo no **LocalStorage**, ou seja, todas as **adições** e **remoções** devem ser abordadas para que a lista atual seja salva.
+
+### 5. Some o valor total dos itens do carrinho de compras de forma assíncrona
+
+Cada vez que se adicionar um item ao carrinho de compras será necessário somar seus valores e apresentá-los na página principal do projeto. Não queremos que essa soma, no entanto, impacte no carregamento da página. Devemos, portanto, fazer essa soma de forma *assíncrona*. Use `async/await` para fazer isso. O elemento que tem como filho o preço total dos itens do carrinho deve ter, **obrigatóriamente**, a classe `total-price`.
+
+### 6. Botão para limpar carrinho de compras
+
+Crie um botão para remover todos os itens do carrinho de compras. Ele deve, **obrigatóriamente**, ter a classe `empty-cart`.
+
+### 7. Adicionar um texto de "loading" durante uma requisição à API
+
+Uma requisição à API gasta um tempo e durante ele, ficamos sem saber se está tudo certo ou se algo deu errado.
+Normalmente é utilizada alguma forma para mostrar que a requisição está em andamento.
+Mostre a palavra "loading..." em alguma lugar da página **apenas durante** a requisição à API. O elemento mostrado durante o carregamento da página deve, **obrigatóriamente**, ter a classe `loading`.
 
 ---
 
 ### DURANTE O DESENVOLVIMENTO
+
+* ⚠ **PULL REQUESTS COM ISSUES NO CODE CLIMATE NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+
 
 * Faça `commits` das alterações que você fizer no código regularmente
 
@@ -288,12 +383,12 @@ test('shows the Pokédex when the route is `/`', () => {
   1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
   2. `git add` _(para adicionar arquivos ao stage do Git)_
   3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
+  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
 
 ---
 
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO (OPCIONAL)
+### DEPOIS DE TERMINAR O DESENVOLVIMENTO
 
 Para **"entregar"** seu projeto, siga os passos a seguir:
 
@@ -304,14 +399,14 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 
 Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
+⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo CodeClimate estão resolvidas! ⚠
+
 ---
 
 ### REVISANDO UM PULL REQUEST
 
 ⚠⚠⚠
 
-À medida que você e os outros alunos forem entregando os projetos, vocês serão alertados **via Slack** para também fazer a revisão dos _Pull Requests_ dos seus colegas. Fiquem atentos às mensagens do _"Pull Reminders"_ no _Slack_!
-
-Os monitores também farão a revisão de todos os projetos, e irão avaliar tanto o seu _Pull Request_, quanto as revisões que você fizer nos _Pull Requests_ dos seus colegas!!!
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
 
 Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
